@@ -1,11 +1,15 @@
-import React from 'react'
-import Login from './Login'
+import React, { useState } from "react";
+
+
+import Login from "./Login";
 
 function App() {
+  const [id, setId] = useState();
   return (
-    <div className="App">  
-      <Login></Login>
-    </div>
+    <>
+      {id}
+      <Login onIdSubmit={setId}></Login>;
+    </>
   );
 }
 
