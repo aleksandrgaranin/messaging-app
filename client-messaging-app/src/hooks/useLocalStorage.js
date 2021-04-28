@@ -4,6 +4,8 @@ const PREFIX = "whatsapp-clone-";
 
 const useLocalStorage = (key, initialValue) => {
   const prefixedKey = PREFIX + key;
+
+  // Read data from localStorage if exists
   const [value, setValue] = useState(() => {
     const jsonValue = localStorage.getItem(prefixedKey);
     if (jsonValue != null) return JSON.parse(jsonValue);
@@ -14,6 +16,7 @@ const useLocalStorage = (key, initialValue) => {
     }
   });
 
+  // Save data to localStorage
   useEffect(() => {
     localStorage.setItem(prefixedKey, JSON.stringify(value));
   }, [prefixedKey, value]);
